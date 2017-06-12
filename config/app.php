@@ -163,6 +163,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        //Package Activity feeds
+        Laracasts\Generators\GeneratorsServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
