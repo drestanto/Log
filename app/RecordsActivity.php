@@ -22,7 +22,7 @@ trait RecordsActivity
 
 	protected function getActivityName($model, $action)
 	{
-		$name = strtolower((new ReflectionClass)->getShortName());
+		$name = strtolower((new \ReflectionClass($model))->getShortName());
 		return $action . "_" . $name;
 	}
 }
