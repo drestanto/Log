@@ -58,7 +58,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (9,'2014_10_12_000000_create_users_table',1),(10,'2014_10_12_100000_create_password_resets_table',1),(11,'2017_06_13_032110_create_post_table',1),(12,'2017_06_13_035302_create_activities_table',1);
+INSERT INTO `migrations` VALUES (13,'2014_10_12_000000_create_users_table',1),(14,'2014_10_12_100000_create_password_resets_table',1),(15,'2017_06_13_032110_create_post_table',1),(16,'2017_06_13_035302_create_activities_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +112,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`),
   KEY `posts_user_id_foreign` (`user_id`),
   CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Andi','andi@blog.com','$2y$10$Bu31TBWBIlvrNotCxd9wkOdydjfv/79lm9IUWyFC/RPXAiDKBgywq','YHg9spCQltNS1CmSZOvYpB2EW3NobnkMx790q2XludysAO9MiOdP7RHwobNU','2017-06-12 21:16:25','2017-06-12 21:16:25'),(2,'Budi','budi@blog.com','$2y$10$xGEXRpWamBryRmIbndAr0.iBbRC0DlwWgvpbGrBjd/ef7WVSASJES','iD7StBDf4iWvlTpwUntpSjH62FiW5XiBEv4v8PQcJZHUVc8A1dRIFrbiMJlW','2017-06-12 21:17:17','2017-06-12 21:17:17');
+INSERT INTO `users` VALUES (1,'Andi','andi@blog.com','$2y$10$Bu31TBWBIlvrNotCxd9wkOdydjfv/79lm9IUWyFC/RPXAiDKBgywq','YHg9spCQltNS1CmSZOvYpB2EW3NobnkMx790q2XludysAO9MiOdP7RHwobNU','2017-06-12 14:16:25','2017-06-12 14:16:25'),(2,'Budi','budi@blog.com','$2y$10$xGEXRpWamBryRmIbndAr0.iBbRC0DlwWgvpbGrBjd/ef7WVSASJES','iD7StBDf4iWvlTpwUntpSjH62FiW5XiBEv4v8PQcJZHUVc8A1dRIFrbiMJlW','2017-06-12 14:17:17','2017-06-12 14:17:17');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -163,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-13 11:17:26
+-- Dump completed on 2017-06-13 11:32:37
