@@ -9,10 +9,11 @@ class ActivitiesController extends Controller
 {
     public function showAll($username) {
     	$user = \App\User::whereName($username)->firstOrFail();
+
     	if (Auth::user()->name == $user->name) {
 	    	$activities = $user->activity()->with(['user', 'subject'])->get();
 
-	    	return view('activity', compact('activities'));
-	    } else return "You are not logged in as " . $username;
+	    	return view('activity', compact('activities', 'username'));
+	    } else return "You are not logged in as {$username}";
     }
 }

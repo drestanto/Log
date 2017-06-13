@@ -1,6 +1,6 @@
 <html>
 <body>
-	<h2> Your Activities </h2>
+	<h2> {{ $username }}'s activities... </h2>
 	@foreach ($activities as $activity)
 		@if ($activity->name == 'created_post')
 			{{ $activity->user->name }} published a post {{ $activity->created_at->diffForHumans() }}<br>
