@@ -5,18 +5,16 @@ namespace App;
 trait RecordsActivity
 {
 
-	protected static function boot()
+	protected static function bootRecordsActivity()
 	{
-    	parent::boot();
-
     	foreach (static::getModelEvents() as $event) {
     		static::$event(function($model) use ($event) {
-	    		$model->addActivity($event);
+	    		$model->recordActivity($event);
 	    	});
     	}   	
 	}
 
-	protected function addActivity($event)
+	public function recordActivity($event)
 	{
 		Activity::create([
 			'subject_id' => $this->id,
