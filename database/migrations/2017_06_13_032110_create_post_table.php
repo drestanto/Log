@@ -12,7 +12,7 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');
@@ -20,7 +20,7 @@ class CreatePostTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('post', function($table) {
+        Schema::table('posts', function($table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
 
@@ -33,6 +33,6 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        Schema::drop('post');
+        Schema::drop('posts');
     }
 }
