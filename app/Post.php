@@ -8,6 +8,8 @@ class Post extends Model
 {
     use RecordsActivity;
 
+    // protected static $recordEvents = ['created'];
+    
     /**
      * The attributes that are mass assignable.
      *
