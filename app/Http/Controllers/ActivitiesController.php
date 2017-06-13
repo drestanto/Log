@@ -8,6 +8,6 @@ class ActivitiesController extends Controller
 {
     public function showAll($username) {
     	$user = \App\User::whereName($username)->firstOrFail();
-    	return $user->activity()->with('user')->get();
+    	dd($user->activity()->with(['user', 'subject'])->get());
     }
 }

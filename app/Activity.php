@@ -19,4 +19,8 @@ class Activity extends Model
     	return $this->belongsTo('App\User');
     }
 
+    public function subject() {
+    	return $this->morphTo();
+    }
+
 }
