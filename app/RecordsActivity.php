@@ -8,15 +8,17 @@ trait RecordsActivity
 	protected static function boot()
 	{
     	parent::boot();
-    	
-    	static::created(function($post) {
+
+    	static::created(function($model) {
     		Activity::create([
-    			'subject_id' => $post->id,
-    			'subject_type' => get_class($post),
-    			'name' => 'created_post',
-    			'user_id' => $post->user_id
+    			'subject_id' => $model->id,
+    			'subject_type' => get_class($model),
+    			'name' => $model->getActivityName(),
+    			'user_id' => $model->user_id
     		]);
 
     	});
 	}
+
+	
 }
