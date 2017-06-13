@@ -9,15 +9,18 @@ trait RecordsActivity
 	{
     	parent::boot();
 
-    	static::created(function($model) {
-    		Activity::create([
-    			'subject_id' => $model->id,
-    			'subject_type' => get_class($model),
-    			'name' => $model->getActivityName($model, "created"),
-    			'user_id' => $model->user_id
-    		]);
+    	foreach (static::getModelEvents() as $event) {
+    		static::$event(function($model) {
+	    		Activity::create([
+	    			'subject_id' => $model->id,
+	    			'subject_type' => get_class($model),
+	    			'name' => $model->getActivityName($model, "created"),
+	    			'user_id' => $model->user_id
+	    		]);
 
-    	});
+	    	});
+    	}
+    	
 	}
 
 	protected function getActivityName($model, $action)
