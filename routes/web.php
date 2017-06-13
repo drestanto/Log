@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('users/{username}/activity', 'ActivitiesController@showAll');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
